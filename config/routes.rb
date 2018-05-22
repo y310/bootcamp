@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     resources :footprints, only: %i(create)
     resources :comments
   end
+  get "practice/content", to: "practices#content"
 
   resources :notifications, only: %i(show)
   get "pages/new", to: "pages#new"

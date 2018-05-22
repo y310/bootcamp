@@ -10,6 +10,17 @@ header.page-header
           = t('practices')
 
 .container
+  .col-md-6.col-xs-12
+    ul.practice-content-actions__items
+      li#content
+        = link_to practice_content_path(practice_id: @practice), remote: true do
+          | 内容・終了条件
+      li#nippou
+        | このプラクティスに関する日報
+
+.content-section
+
+.container
   .row.is-gutter-width-32
     .col-md-6.col-xs-12
 

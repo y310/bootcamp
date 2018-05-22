@@ -52,6 +52,10 @@ class PracticesController < ApplicationController
     redirect_to practices_url, notice: "プラクティスを削除しました。"
   end
 
+  def content
+    @practice = Practice.find(params[:practice_id])
+  end
+
   private
 
     def practice_params
