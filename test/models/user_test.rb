@@ -69,4 +69,16 @@ class UserTest < ActiveSupport::TestCase
       assert_equal 365, user.dates_from_start_lerning
     end
   end
+
+  test "invalid when blank to retire_reason column" do
+    user = users(:hatsuno)
+    assert user.retire_reason.blank?
+    assert_not user.save(context: :retire_reason_presence)
+  end
+
+  test "valid when more than 8 characters to retire_reason column" do
+    user = users(:hatsuno)
+    user.retire_reason = "辞" * 8
+    assert user.save(context: :retire_reason_presence)
+  end
 end
