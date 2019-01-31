@@ -5,12 +5,14 @@ class Report < ActiveRecord::Base
   include Checkable
   include Footprintable
   include Searchable
+  include Watchable
 
   has_many :learning_times, dependent: :destroy, inverse_of: :report
   validates_associated :learning_times
   accepts_nested_attributes_for :learning_times, reject_if: :all_blank, allow_destroy: true
   has_and_belongs_to_many :practices
   belongs_to :user, touch: true
+  has_many :watches, as: :watchable
 
   validates :title, presence: true, uniqueness: { scope: :user_id }, length: { maximum: 255 }
   validates :description, presence: true
