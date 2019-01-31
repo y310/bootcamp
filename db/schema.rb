@@ -256,8 +256,8 @@ ActiveRecord::Schema.define(version: 2019_01_31_090309) do
     t.integer "study_place"
     t.integer "experience"
     t.string "how_did_you_know"
-    t.boolean "free", default: false, null: false
     t.boolean "trainee", default: false, null: false
+    t.boolean "free", default: false, null: false
     t.index ["course_id"], name: "index_users_on_course_id"
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
